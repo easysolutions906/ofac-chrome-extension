@@ -45,12 +45,15 @@ const renderError = (message, query) => `
 `;
 
 const renderMatchCard = (match) => {
-  const score = match.score || 0;
+  const rawScore = match.score || 0;
+  const score = rawScore <= 1 ? Math.round(rawScore * 100) : Math.round(rawScore);
   const { label, cssClass, barClass } = classifyScore(score);
-  const name = match.name || match.fullName || 'Unknown';
-  const type = match.type || match.sdnType || '--';
-  const program = match.program || (match.programs || []).join(', ') || '--';
-  const remarks = match.remarks || '';
+  const entity = match.entity || {};
+  const name = entity.name || match.matchedName || match.name || 'Unknown';
+  const type = entity.sdnType || match.type || '--';
+  const programs = entity.programs || match.programs || [];
+  const program = Array.isArray(programs) ? programs.join(', ') : (programs || '--');
+  const remarks = entity.remarks || match.remarks || '';
 
   return `
     <div class="match-card">
