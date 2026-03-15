@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">
+    <div class="header-icon">S</div>
+    <div>
+      <h1>OFAC Quick Screen</h1>
+      <div class="subtitle">SDN Sanctions List Screening</div>
+    </div>
+  </div>
+
+  <div id="content" class="content">
+    <div class="empty-state">
+      <p>Select any text on a webpage, then right-click and choose "Screen against OFAC".</p>
+      <p class="hint">Results will appear here.</p>
+    </div>
+  </div>
+
+  <div id="usage-bar" class="usage-bar" style="display: none;">
+    <span id="usage-text"></span>
+    <a id="upgrade-link" href="#" style="display: none;">Get Unlimited</a>
+  </div>
+
+  <button class="settings-toggle" id="settings-toggle">
+    <span>Settings</span>
+    <span id="toggle-arrow">&#9660;</span>
+  </button>
+
+  <div class="settings-panel" id="settings-panel">
+    <label for="api-key-input">API Key</label>
+    <div class="key-input-row">
+      <input type="text" id="api-key-input" placeholder="Enter your API key">
+      <button id="save-key-btn">Save</button>
+    </div>
+    <div class="save-confirm" id="save-confirm">Key saved.</div>
+    <div class="settings-links">
+      <a href="https://ofac-screening-production.up.railway.app/checkout" target="_blank">Get API Key</a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

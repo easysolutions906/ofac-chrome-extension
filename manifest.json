@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "OFAC Quick Screen",
+  "version": "1.0.0",
+  "description": "Right-click any name to screen against the OFAC sanctions list",
+  "permissions": ["contextMenus", "activeTab", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "OFAC Quick Screen"
+  }
+}
